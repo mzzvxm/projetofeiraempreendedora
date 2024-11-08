@@ -1,18 +1,21 @@
 .banner {
-    background: var(--azul-degrade);
+    background: conic-gradient(from 180deg, #03050e 0%, #222049 50%, #050516 100%);
     color: var(--branco);
     text-align: center;
-    padding: 2.5em 2em;
+    padding: 6.0em 2em;
 }
+
 
 .banner__titulo {
     font-size: 18px;
     font-weight: 700;
+    color: white;
 }
 
 .banner__texto {
     font-weight: 500;
     margin: 1em 0;
+    color: white;
 }
 
 .banner__pesquisa {
@@ -33,6 +36,61 @@
     background: url("../img/Lupa.svg") no-repeat;
     background-position: 1em;
 }
+
+/* Estilo para as gotas de chuva */
+.raindrop {
+    position: absolute;
+    width: 5px;
+    height: 15px;
+    background-color: rgba(255, 255, 255, 0.6); /* Usando uma cor opaca para as gotas */
+    bottom: 100%;
+    left: calc(100% * var(--x));
+    animation: fall linear infinite;
+    opacity: 0.8;
+    pointer-events: none; /* Impede que as gotas interfiram em cliques */
+}
+
+/* Animação de queda */
+@keyframes fall {
+    0% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(500px); /* Ajuste para aumentar ou diminuir o comprimento */
+        opacity: 0;
+    }
+}
+
+/* Animação para troca de fontes */
+@keyframes trocaFontes {
+    0% { font-family: "Sacramento", cursive; }
+    25% { font-family: "Mrs Saint Delafield", cursive; }    
+    50% { font-family: "Italianno", cursive; }
+    75% { font-family: "Birthstone", cursive; }
+    100% { font-family: "Great Vibes", cursive; } /* Volta para a fonte inicial */
+}
+
+/* Estilo para a troca de fontes */
+.troca-de-fonte {
+    animation: trocaFontes 5s infinite;
+}
+
+
+/* Distribuição aleatória das gotas */
+.raindrop:nth-child(1) { --x: 0.1; animation-duration: 1.2s; }
+.raindrop:nth-child(2) { --x: 0.25; animation-duration: 1.4s; }
+.raindrop:nth-child(3) { --x: 0.4; animation-duration: 1.6s; }
+.raindrop:nth-child(4) { --x: 0.55; animation-duration: 1.8s; }
+.raindrop:nth-child(5) { --x: 0.7; animation-duration: 2s; }
+.raindrop:nth-child(6) { --x: 0.85; animation-duration: 1.3s; }
+.raindrop:nth-child(7) { --x: 0.95; animation-duration: 1.5s; }
+.raindrop:nth-child(8) { --x: 0.15; animation-duration: 1.7s; }
+.raindrop:nth-child(9) { --x: 0.5; animation-duration: 1.9s; }
+
 
 @media screen and (min-width: 1024px) {
     .banner__titulo {
