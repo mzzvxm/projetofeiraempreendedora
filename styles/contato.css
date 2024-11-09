@@ -1,6 +1,6 @@
 .contato {
     background-color: var(--branco);
-    padding: 1em;
+    padding: 2em;
 }
 
 .contato__titulo,
@@ -9,6 +9,7 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    padding: 10px;
 }
 
 .contato__titulo {

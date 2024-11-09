@@ -152,7 +152,7 @@
   </section>
 
   <section class=”carrossel”>
-    <h2 class="carrossel__titulo">A História das Empresas</h2>
+    <h2 class="carrossel__titulo">A História das Empresas | <span>Clique Para Abrir</span></h2>
 
     <div class="carrossel__container">
       <div class="swiper">
@@ -178,6 +178,21 @@
         <div class="swiper-button-prev"></div>
         <div class="swiper-button-next"></div>
       </div>
+
+      <script>// Captura todas as imagens dentro do carrossel
+        const imagens = document.querySelectorAll('.swiper-slide img');
+        
+        // Adiciona o evento de clique nas imagens
+        imagens.forEach(imagem => {
+            imagem.addEventListener('click', (e) => {
+                const imgUrl = e.target.src; // Pega o link da imagem
+        
+                // Abre a imagem em uma nova guia
+                window.open(imgUrl, '_blank');
+            });
+        });
+        
+</script>
 
       <div class="card">
         <!-- 1º linha -->
@@ -241,7 +256,7 @@
   <div class="contato__descrição">
     <h2 class="contato__titulo">Quer participar desta feira inesquecível?</h2>
     <p class="contato__texto">
-      Se Inscreva na feira! (até dia 17/01)
+      Se Inscreva na feira! (até dia 17/11)
     </p>
   </div>
   <a href="https://mzzvxm.github.io/acaoempreendedoraform/" class="contato__email" target="_blank">Cadastre-se agora!</a>

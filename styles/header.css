@@ -91,7 +91,7 @@
 
     .container__titulo {
         font-weight: 400;
-        display: block;
+        display: flex;
     }
 
     .container__titulo--negrito {
@@ -118,6 +118,7 @@
 
     .cabeçalho__menu-hamburguer {
         display: none;
+        margin-left: 5px;
     }
 
     .opções__botão:checked~.lista-menu {
@@ -166,4 +167,15 @@
         display: block;
     }
 
+}
+
+@media screen and (max-width: 768px) {
+    .cabeçalho__menu-hamburguer {
+        margin-left: 10px;
+    }
+
+    .container__imagem {
+        width: 7%;
+        height: 7%;
+    }
 }

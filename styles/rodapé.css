@@ -50,3 +50,10 @@ hr {
         padding-left: 1em;
     }
 }
+
+@media screen and (max-width: 768px) {
+    .rodapé__titulo {
+        display: none;
+    }
+
+}
