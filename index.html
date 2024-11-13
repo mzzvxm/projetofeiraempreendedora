@@ -345,7 +345,90 @@
       Se Inscreva na feira! (até dia 17/11)
     </p>
   </div>
-  <a href="javascript:void(0);" class="contato__email" target="_blank" id="inscrever-link">Cadastre-se agora!</a>
+  <!-- Novo link para o botão de inscrição -->
+<a href="javascript:void(0);" class="contato__email" id="cadastro-link">Cadastre-se agora!</a>
+
+<!-- Estrutura do pop-up -->
+<div id="form-popup" class="form-popup">
+  <div class="form-popup-content">
+      <span id="close-btn" class="close-btn">&times;</span>
+      <div class="header">
+          <h2>Inscreva-se</h2>
+      </div>
+
+      <form id="form" class="form">
+          <div class="form-control">
+              <label for="username">Nome do aluno</label>
+              <input type="text" id="username" name="username" placeholder="Digite seu nome..." />
+              <small>Mensagem de erro</small>
+          </div>
+
+          <div class="form-control">
+              <label for="email">Email</label>
+              <input type="text" id="email" name="email" placeholder="Digite seu @escola..." />
+              <small>Mensagem de erro</small>
+          </div>
+
+          <div class="form-control">
+              <label for="serie">Série</label>
+              <input type="text" id="serie" name="serie" placeholder="Digite sua série..." />
+              <small>Mensagem de erro</small>
+          </div>
+
+          <button type="submit">Enviar</button>
+      </form>
+  </div>
+</div>
+
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Inicializa o EmailJS com a chave pública
+        emailjs.init("kKw-JDfqoS32nlFGC"); // Sua chave pública do EmailJS
+
+        const cadastroLink = document.getElementById("cadastro-link");
+        const formPopup = document.getElementById("form-popup");
+        const closeBtn = document.getElementById("close-btn");
+        const form = document.getElementById("form");
+
+        // Função para mostrar/ocultar o pop-up
+        cadastroLink.addEventListener("click", function () {
+            formPopup.style.display = "flex"; // Exibe o pop-up
+        });
+
+        // Fechar o pop-up quando o botão de fechar for clicado
+        closeBtn.addEventListener("click", function () {
+            formPopup.style.display = "none"; // Esconde o pop-up
+        });
+
+        // Fechar o pop-up quando clicar fora do conteúdo do formulário
+        window.addEventListener("click", function (event) {
+            if (event.target === formPopup) {
+                formPopup.style.display = "none"; // Esconde o pop-up
+            }
+        });
+
+        // Evento de envio do formulário
+        form.addEventListener("submit", (e) => {
+            e.preventDefault(); // Previne o envio normal do formulário
+            enviarEmailJS(); // Envia o formulário para o EmailJS
+        });
+
+        function enviarEmailJS() {
+            emailjs.sendForm("service_0sodnng", "template_x355rvl", form)
+                .then(() => {
+                    alert("E-mail enviado com sucesso!");
+                    form.reset(); // Reseta o formulário após o envio
+                    formPopup.style.display = "none"; // Oculta o pop-up após o envio
+                })
+                .catch((error) => {
+                    alert("Erro no envio do e-mail. Verifique as configurações.");
+                    console.error("Erro ao enviar e-mail:", error);
+                });
+        }
+    });
+</script>
+
 </section>
 
 
